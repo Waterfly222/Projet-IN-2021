@@ -1,42 +1,12 @@
 fileFormatVersion: 2
-guid: 6f7a8c87be268324699f7e83e540af47
+guid: 72f38cfd5f3f66f4c847970ea2a338c7
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable:
   - first:
       74: -203655887218126122
     second: mixamo.com
-  externalObjects:
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: Ch17_1001_Diffuse
-    second: {fileID: 2800000, guid: a6757f9c72c331d49af241e41435b11f, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: Ch17_1001_Glossiness
-    second: {fileID: 2800000, guid: c6b8cda5b72ffd240b99d07c87900138, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: Ch17_1001_Normal
-    second: {fileID: 2800000, guid: f559b91a1048859428f50b29663b377a, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: Ch17_1001_Specular
-    second: {fileID: 2800000, guid: 0cebc573e0dd17945ab503eacc1bc2f7, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: Ch17_1002_Diffuse
-    second: {fileID: 2800000, guid: 26204748b397d804e958d98e55875b90, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: Ch17_1002_Normal
-    second: {fileID: 2800000, guid: 8089370168cc2ca4eb0aa355d58396cb, type: 3}
+  externalObjects: {}
   materials:
     materialImportMode: 1
     materialName: 0
@@ -123,7 +93,7 @@ ModelImporter:
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
-  avatarSetup: 1
+  avatarSetup: 0
   additionalBone: 0
   userData: 
   assetBundleName: 
