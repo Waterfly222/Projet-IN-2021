@@ -11,8 +11,4 @@ public class agent : MonoBehaviour
     {
         GetComponent<NavMeshAgent>().destination = goal.transform.position;
     }
-    void Update()
-    {
-
-    }
 }
