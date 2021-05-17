@@ -31,66 +31,143 @@ public class Path_flowerman : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // init
         if(action == 0)
         {
             agent.destination = plant_target1.transform.position;
             animator.SetBool("move", true);
-            animator.SetBool("onTarget", false);
-            animator.SetBool("hasObject", false);
-            animator.SetBool("watercan", false);
+            animator.SetBool("noAction", true);
+            animator.SetBool("holdingObject", false);
             action = 1;
         }
+        // marche jusqu'au premier pot de fleur
         else if (action == 1)
         {
             if (agent.remainingDistance < 0.01f)
             {
                 transform.rotation = plant_target1.transform.rotation;
                 animator.SetBool("move", false);
-                animator.SetBool("onTarget", true);
+                animator.SetBool("noAction", false);
+                animator.SetTrigger("planting_seeds");
                 action = 2;
             }
         }
+        // plant dans le premier pot de fleur
         else if(action == 2)
         {
             if (animator.GetCurrentAnimatorStateInfo(0).IsName("endplant"))
             {
                 agent.destination = plant_target2.transform.position;
                 animator.SetBool("move", true);
-                animator.SetBool("onTarget", false);
+                animator.SetBool("noAction", true);
                 action = 3;
             }
         }
-        else if(action == 3)
+        // marche jusqu'au deuxième pot de fleur
+        else if (action == 3)
         {
             if (agent.remainingDistance < 0.01f)
             {
                 transform.rotation = plant_target2.transform.rotation;
                 animator.SetBool("move", false);
-                animator.SetBool("onTarget", true);
+                animator.SetBool("noAction", false);
+                animator.SetTrigger("planting_seeds");
                 action = 4;
             }
         }
-        else if(action == 4)
+        // plant dans le deuxième pot de fleur
+        else if (action == 4)
         {
             if (animator.GetCurrentAnimatorStateInfo(0).IsName("endplant"))
             {
                 agent.destination = watercan_target.transform.position;
                 animator.SetBool("move", true);
-                animator.SetBool("onTarget", false);
+                animator.SetBool("noAction", true);
                 action = 5;
             }
         }
+        // marche jusqu'à l'arrosoir
         else if (action == 5)
         {
             if (agent.remainingDistance < 0.01f)
             {
                 transform.rotation = watercan_target.transform.rotation;
                 animator.SetBool("move", false);
-                animator.SetBool("onTarget", true);
-                animator.SetBool("watercan", true);
+                animator.SetBool("noAction", false);
+                animator.SetTrigger("pickup_watercan");
                 action = 6;
             }
         }
+        // récupère l'arrosoir
+        else if (action == 6)
+        {
+            if (animator.GetCurrentAnimatorStateInfo(0).IsName("endwatercan"))
+            {
+                agent.destination = fillwatercan_target.transform.position; //TODO mettre l'arrosoir dans la main et faire l'animation
+                animator.SetBool("move", true);
+                animator.SetBool("noAction", true);
+                action = 7;
+            }
+        }
+        // marche jusqu'au robinet
+        else if (action == 7)
+        {
+            if (agent.remainingDistance < 0.01f)
+            {
+                transform.rotation = fillwatercan_target.transform.rotation;
+                animator.SetBool("move", false);
+                animator.SetBool("noAction", false);
+                animator.SetTrigger("fill_watercan");
+                action = 8;
+            }
+        }
+        // rempli l'arrosoir
+        else if (action == 8)
+        {
+            if (animator.GetCurrentAnimatorStateInfo(0).IsName("endfillwatercan")) //TODO faire l'animation
+            {
+                agent.destination = plant_target1.transform.position;
+                animator.SetBool("move", true);
+                animator.SetBool("noAction", true);
+                action = 9;
+            }
+        }
+        // marche jusqu'au plant 1
+        else if (action == 9)
+        {
+            if (agent.remainingDistance < 0.01f)
+            {
+                transform.rotation = plant_target1.transform.rotation;
+                animator.SetBool("move", false);
+                animator.SetBool("noAction", false);
+                animator.SetTrigger("watering_plants");
+                action = 10;
+            }
+        }
+        // arrose le plant 1
+        else if (action == 10)
+        {
+            if (animator.GetCurrentAnimatorStateInfo(0).IsName("endwaterplants"))
+            {
+                agent.destination = plant_target2.transform.position;
+                animator.SetBool("move", true);
+                animator.SetBool("noAction", true);
+                action = 11;
+            }
+        }
+        // marche jusqu'au plant 2
+        else if (action == 9)
+        {
+            if (agent.remainingDistance < 0.01f)
+            {
+                transform.rotation = plant_target2.transform.rotation;
+                animator.SetBool("move", false);
+                animator.SetBool("noAction", false);
+                animator.SetTrigger("watering_plants");
+                action = 10;
+            }
+        }
+
         /*
         if ((agent.destination == plant_target1.transform.position ||
             agent.destination == plant_target2.transform.position) &&
