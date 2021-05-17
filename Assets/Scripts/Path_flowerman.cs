@@ -37,12 +37,14 @@ public class Path_flowerman : MonoBehaviour
             animator.SetBool("move", true);
             animator.SetBool("onTarget", false);
             animator.SetBool("hasObject", false);
+            animator.SetBool("watercan", false);
             action = 1;
         }
         else if (action == 1)
         {
-            if (agent.remainingDistance < 0.25f)
+            if (agent.remainingDistance < 0.01f)
             {
+                transform.rotation = plant_target1.transform.rotation;
                 animator.SetBool("move", false);
                 animator.SetBool("onTarget", true);
                 action = 2;
@@ -60,8 +62,9 @@ public class Path_flowerman : MonoBehaviour
         }
         else if(action == 3)
         {
-            if (agent.remainingDistance < 0.25f)
+            if (agent.remainingDistance < 0.01f)
             {
+                transform.rotation = plant_target2.transform.rotation;
                 animator.SetBool("move", false);
                 animator.SetBool("onTarget", true);
                 action = 4;
@@ -75,6 +78,17 @@ public class Path_flowerman : MonoBehaviour
                 animator.SetBool("move", true);
                 animator.SetBool("onTarget", false);
                 action = 5;
+            }
+        }
+        else if (action == 5)
+        {
+            if (agent.remainingDistance < 0.01f)
+            {
+                transform.rotation = watercan_target.transform.rotation;
+                animator.SetBool("move", false);
+                animator.SetBool("onTarget", true);
+                animator.SetBool("watercan", true);
+                action = 6;
             }
         }
         /*
