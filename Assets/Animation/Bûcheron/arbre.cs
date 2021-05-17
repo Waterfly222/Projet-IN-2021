@@ -15,8 +15,10 @@ public class arbre : MonoBehaviour
     public GameObject arbre8;
     public GameObject arbre9;
     public GameObject arbre10;
+    public GameObject hache;
 
-    private int indexe=0;
+    public int indexe=0;
+    private bool isShooting = false;
 
     /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
@@ -28,11 +30,22 @@ public class arbre : MonoBehaviour
 
     private void Start()
     {
+        GetComponent<ParticleSystem>().Stop();
         print(indexe);
     }
 
     void Update()
     {
+        if (!isShooting && (indexe == 10 || indexe == 20 || indexe == 30 || indexe == 40 || indexe == 50 || indexe == 60 || indexe == 70 || indexe == 80 || indexe == 90 || indexe == 100))
+        {
+            GetComponent<ParticleSystem>().Play();
+            isShooting = true;
+        }
+        if(!(indexe == 10 || indexe == 20 || indexe == 30 || indexe == 40 || indexe == 50 || indexe == 60 || indexe == 70 || indexe == 80 || indexe == 90 || indexe == 100))
+        {
+            isShooting = false;
+        }
+
         if (indexe==10)
         {
             arbre0.SetActive(false);
@@ -80,8 +93,12 @@ public class arbre : MonoBehaviour
         }
         if (indexe == 100)
         {
+            Destroy(hache.GetComponent<Rigidbody>());
+            Destroy(hache.GetComponent<BoxCollider>());
             arbre9.SetActive(false);
             arbre10.SetActive(true);
+            GetComponent<AudioSource>().Play();
+            indexe++;
         }
     }
 }
