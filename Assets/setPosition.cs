@@ -28,7 +28,10 @@ public class setPosition : MonoBehaviour
         {
             distance = GetComponent<NavMeshAgent>().remainingDistance;
             GetComponent<NavMeshAgent>().enabled = false;
-            transform.SetPositionAndRotation(pos,rota);
+            transform.parent = arbre.transform;
+            transform.localPosition = pos;
+            transform.localRotation = rota;
+            transform.parent = null;
             GetComponent<Animator>().SetTrigger("CouperDuBois");
             pos = new Vector3(0, 0, 1);
             rota = Quaternion.Euler(0, 194, 0);

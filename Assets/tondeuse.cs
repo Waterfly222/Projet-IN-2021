@@ -4,15 +4,30 @@ using UnityEngine;
 
 public class tondeuse : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public GameObject tondeur;
+    private bool a = true;
+    void OnTriggerEnter(Collider other)
     {
-        
+        if (other.gameObject.CompareTag("herbe")) Destroy(other.gameObject);
     }
 
-    // Update is called once per frame
+    void Start()
+    {
+        GetComponent<ParticleSystem>().Stop();
+    }
+
     void Update()
     {
-        
+        if (a&&tondeur.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("walkingAvecTondeuse"))
+        {
+            GetComponent<ParticleSystem>().Play();
+            GetComponent<AudioSource>().Play();
+            a = false;
+        }
+        if (!tondeur.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("walkingAvecTondeuse"))
+        {
+            GetComponent<ParticleSystem>().Stop();
+            GetComponent<AudioSource>().Stop();
+        }
     }
 }
