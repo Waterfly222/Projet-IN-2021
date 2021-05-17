@@ -11,7 +11,7 @@ public class tondeur : MonoBehaviour
 
     private bool a = true;
     private bool b = true;
-    private Vector3 pos = new Vector3(0, 0.3f, 3.5f);
+    private Vector3 pos = new Vector3(0, 0.35f, 3.5f);
     private Quaternion rota = Quaternion.Euler(0, 180, 0);
 
     void Start()
