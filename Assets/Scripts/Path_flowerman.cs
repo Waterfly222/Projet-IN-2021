@@ -26,7 +26,7 @@ public class Path_flowerman : MonoBehaviour
         }
         if (animator.GetCurrentAnimatorStateInfo(0).IsName("dig_and_plant_seed"))
         {
-            animator.SetBool("plant", false);
+            animator.SetBool("onTarget", false);
         }
     }
 }
