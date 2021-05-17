@@ -1,12 +1,14 @@
 fileFormatVersion: 2
-guid: eb8d6ec1266fec649ae70ee84dd6995e
+guid: 676349fc0601efd4cb4a0c7c20a3f8cc
 ModelImporter:
   serializedVersion: 19301
-  internalIDToNameTable:
+  internalIDToNameTable: []
+  externalObjects:
   - first:
-      74: -203655887218126122
-    second: mixamo.com
-  externalObjects: {}
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: kkviz calluna vulgaris_01 leaves_F
+    second: {fileID: 2100000, guid: d5ec6ba9fccaf6045b38c579e4d69a74, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
