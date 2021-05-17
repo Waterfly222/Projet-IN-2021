@@ -17,7 +17,7 @@ public class arbre : MonoBehaviour
     public GameObject arbre10;
     public GameObject hache;
 
-    private int indexe=0;
+    public int indexe=0;
     private bool isShooting = false;
 
     /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
@@ -97,6 +97,8 @@ public class arbre : MonoBehaviour
             Destroy(hache.GetComponent<BoxCollider>());
             arbre9.SetActive(false);
             arbre10.SetActive(true);
+            GetComponent<AudioSource>().Play();
+            indexe++;
         }
     }
 }
