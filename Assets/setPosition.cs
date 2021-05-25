@@ -24,12 +24,13 @@ public class setPosition : MonoBehaviour
     
     void Update()
     {
+        print(GetComponent<NavMeshAgent>().remainingDistance);
         if (a && GetComponent<NavMeshAgent>().enabled && GetComponent<NavMeshAgent>().remainingDistance < 0.1)
         {
             distance = GetComponent<NavMeshAgent>().remainingDistance;
-            GetComponent<NavMeshAgent>().enabled = false;
+            //GetComponent<NavMeshAgent>().enabled = false;
             transform.parent = arbre.transform;
-            transform.localPosition = pos;
+            //transform.localPosition = pos;
             transform.localRotation = rota;
             transform.parent = null;
             GetComponent<Animator>().SetTrigger("CouperDuBois");
