@@ -10,7 +10,7 @@ public class ouverturePorte : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             other.gameObject.GetComponent<Animator>().SetTrigger("ouvrirPorte");
-            //Destroy(other.gameObject.GetComponent<Rigidbody>());
+            GetComponent<ouverturePorte>().enabled = false;
         }
     }
 }
