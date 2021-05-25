@@ -16,6 +16,6 @@ public class TruckPath : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GetComponent<NavMeshAgent>().pathEndPosition == transform.position) GetComponent<AudioSource>().volume -= 0.01f;
+        if (GetComponent<NavMeshAgent>().pathEndPosition.x == transform.position.x) GetComponent<AudioSource>().volume -= 0.01f;
     }
 }
