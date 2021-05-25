@@ -113,8 +113,8 @@ NavMeshSettings:
     ledgeDropHeight: 0
     maxJumpAcrossDistance: 0
     minRegionArea: 2
-    manualCellSize: 0
-    cellSize: 0.16666667
+    manualCellSize: 1
+    cellSize: 0.063
     manualTileSize: 0
     tileSize: 256
     accuratePlacement: 0
@@ -5309,17 +5309,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1729234131}
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
 --- !u!114 &256236033
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8138,8 +8127,9 @@ GameObject:
   - component: {fileID: 398285258}
   - component: {fileID: 398285257}
   - component: {fileID: 398285256}
-  - component: {fileID: 398285259}
   - component: {fileID: 398285260}
+  - component: {fileID: 398285259}
+  - component: {fileID: 398285261}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -8205,13 +8195,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 398285255}
-  m_LocalRotation: {x: -0, y: 0.98955077, z: -0.14418484, w: 0}
+  m_LocalRotation: {x: 0, y: 0.98955095, z: -0.14418349, w: 0}
   m_LocalPosition: {x: 675.3, y: 42.7, z: 419.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 16.58, y: 180.00002, z: 0}
+  m_LocalEulerAnglesHint: {x: 16.58, y: 180, z: 0}
 --- !u!114 &398285259
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8221,7 +8211,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 398285255}
   m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7536d824e6f59f748b4d8d08d93b7e1d, type: 3}
+  m_Script: {fileID: 11500000, guid: 930e884f5576f384898070ac0a2f5e81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   obj2follow: {fileID: 542735518}
@@ -8244,6 +8234,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &398285261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 398285255}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b74d8762b85edbe4883be3325e1955b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boutonCamion: {fileID: 1729234131}
 --- !u!1 &403121642
 GameObject:
   m_ObjectHideFlags: 0
@@ -12740,8 +12743,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 657388410}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 684.43, y: 1.99, z: 272}
-  m_LocalScale: {x: 1, y: 1, z: 0.47239}
+  m_LocalPosition: {x: 684.43, y: 0.96, z: 276.19}
+  m_LocalScale: {x: 1, y: 1, z: 0.18969293}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 12
@@ -35699,17 +35702,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 398285259}
-        m_MethodName: set_enabled
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
       - m_Target: {fileID: 398285260}
         m_MethodName: set_enabled
         m_Mode: 6
@@ -35743,8 +35735,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 1729234131}
-        m_MethodName: SetActive
+      - m_Target: {fileID: 1729234134}
+        m_MethodName: set_enabled
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -35753,6 +35745,28 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2011082328}
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 398285259}
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &1729234134
 MonoBehaviour:
