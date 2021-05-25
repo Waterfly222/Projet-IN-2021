@@ -9,6 +9,7 @@ public class setPosition : MonoBehaviour
     public GameObject pos1;
     public GameObject pos2;
     public GameObject arbre;
+    public GameObject hache;
     public float distance = 999;
 
     private Vector3 pos = new Vector3(0, 0, -1);
@@ -28,6 +29,7 @@ public class setPosition : MonoBehaviour
 
         if (a && GetComponent<NavMeshAgent>().enabled && !GetComponent<NavMeshAgent>().pathPending && distance < 0.1)
         {
+            hache.GetComponent<BoxCollider>().enabled = true;
             GetComponent<NavMeshAgent>().enabled = false;
             transform.parent = arbre.transform;
             transform.localPosition = pos;

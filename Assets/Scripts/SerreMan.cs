@@ -16,7 +16,7 @@ public class SerreMan : MonoBehaviour
     void Start()
     {
         string tmp = "Cible" + indiceCible;
-        print(tmp);
+        //print(tmp);
         currentCible = cible.transform.Find(tmp);
         GetComponent<NavMeshAgent>().destination = currentCible.position;
     }

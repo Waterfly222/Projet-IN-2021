@@ -25,13 +25,13 @@ public class arbre : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         indexe++;
-        print(indexe);
+        //print(indexe);
     }
 
     private void Start()
     {
         GetComponent<ParticleSystem>().Stop();
-        print(indexe);
+        //print(indexe);
     }
 
     void Update()
