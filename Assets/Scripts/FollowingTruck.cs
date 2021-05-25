@@ -21,7 +21,6 @@ public class FollowingTruck : MonoBehaviour
         this.transform.position = obj2follow.transform.position + posRelat;
         if (cpt > 0 && obj2follow.GetComponent<NavMeshAgent>().pathEndPosition.x == obj2follow.transform.position.x)
         {
-            Debug.Log("passe");
             GetComponent<Animator>().enabled = true;
             GetComponent<Animator>().SetTrigger("retourne");
         }
