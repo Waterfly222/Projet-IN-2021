@@ -9,7 +9,7 @@ public class setPosition : MonoBehaviour
     public GameObject pos1;
     public GameObject pos2;
     public GameObject arbre;
-    public float distance = 0;
+    public float distance = 999;
 
     private Vector3 pos = new Vector3(0, 0, -1);
     private Quaternion rota = Quaternion.Euler(0, 14, 0);
@@ -24,13 +24,13 @@ public class setPosition : MonoBehaviour
     
     void Update()
     {
-        print(GetComponent<NavMeshAgent>().remainingDistance);
-        if (a && GetComponent<NavMeshAgent>().enabled && GetComponent<NavMeshAgent>().remainingDistance < 0.1)
+        if(GetComponent<NavMeshAgent>().enabled) distance = GetComponent<NavMeshAgent>().remainingDistance;
+
+        if (a && GetComponent<NavMeshAgent>().enabled && !GetComponent<NavMeshAgent>().pathPending && distance < 0.1)
         {
-            distance = GetComponent<NavMeshAgent>().remainingDistance;
-            //GetComponent<NavMeshAgent>().enabled = false;
+            GetComponent<NavMeshAgent>().enabled = false;
             transform.parent = arbre.transform;
-            //transform.localPosition = pos;
+            transform.localPosition = pos;
             transform.localRotation = rota;
             transform.parent = null;
             GetComponent<Animator>().SetTrigger("CouperDuBois");
