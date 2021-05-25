@@ -106,9 +106,6 @@ public class Path_flowerman : MonoBehaviour
             if (animator.GetCurrentAnimatorStateInfo(0).IsName("pickup_watercan2"))
             {
                 watercan.transform.SetParent(main.transform);
-                Quaternion rotationWatercan = new Quaternion();
-                rotationWatercan.eulerAngles = new Vector3(-262.872f, 27.98999f, 21.60699f);
-                watercan.transform.SetPositionAndRotation(new Vector3(-0.08638892f, 0.3135385f, 0.07618965f), rotationWatercan);
                 action = 7;
             }
         }
@@ -120,13 +117,14 @@ public class Path_flowerman : MonoBehaviour
                 agent.destination = fillwatercan_target.transform.position;
                 animator.SetBool("move", true);
                 animator.SetBool("noAction", true);
+                animator.SetBool("holdingObject", true);
                 action = 8;
             }
         }
         // marche jusqu'au robinet
         else if (action == 8)
         {
-            if (agent.remainingDistance < 0.01f)
+            if (agent.remainingDistance < 0.0001f)
             {
                 transform.rotation = fillwatercan_target.transform.rotation;
                 animator.SetBool("move", false);
@@ -192,35 +190,10 @@ public class Path_flowerman : MonoBehaviour
             {
                 transform.rotation = plant_target2.transform.rotation;
                 animator.SetBool("move", false);
-                animator.SetBool("noAction", false);
+                animator.SetBool("noAction", true);
                 animator.SetTrigger("watering_plants");
                 action = 15;
             }
         }
-
-        /*
-        if ((agent.destination == plant_target1.transform.position ||
-            agent.destination == plant_target2.transform.position) &&
-            agent.remainingDistance < 0.25f)
-        {
-            animator.SetBool("move", false);
-            animator.SetBool("onTarget", true);
-        }
-        if (animator.GetCurrentAnimatorStateInfo(0).IsName("plant_seeds"))
-        {
-            animator.SetBool("onTarget", false);
-            if(agent.destination == plant_target1.transform.position && animator.GetCurrentAnimatorStateInfo(0).)
-            {
-
-            }
-        }
-        if (animator.GetCurrentAnimatorStateInfo(0).IsName("pickup_watercan"))
-        {
-            watercan.transform.SetParent(main.transform);
-            Quaternion rotationWatercan = new Quaternion();
-            rotationWatercan.eulerAngles = new Vector3(-176.524f, 4.9993988f, 9.585999f);
-            arrosoir.transform.SetPositionAndRotation(new Vector3(-0.028f,0.292f,0.041f), rotationWatercan);
-        }*/
-
     }
 }
