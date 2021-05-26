@@ -108,6 +108,8 @@ public class Path_flowerman : MonoBehaviour
             if (animator.GetCurrentAnimatorStateInfo(0).IsName("pickup_watercan2"))
             {
                 watercan.transform.SetParent(main.transform);
+                watercan.transform.localPosition = new Vector3(-0.08636265f, 0.3135328f, 0.07620765f);
+                watercan.transform.localRotation = Quaternion.Euler(-262.872f, 27.98999f, 21.60699f);
                 action = 7;
             }
         }
@@ -192,13 +194,14 @@ public class Path_flowerman : MonoBehaviour
             {
                 transform.rotation = plant_target2.transform.rotation;
                 animator.SetBool("move", false);
-                animator.SetBool("noAction", true);
+                animator.SetBool("noAction", false);
                 animator.SetTrigger("watering_plants");
                 action = 15;
             }
         }
         else if (action == 15)
         {
+            print(action);
             if (animator.GetCurrentAnimatorStateInfo(0).IsName("endwaterplants"))
             {
                 agent.destination = truck_target.transform.position;
@@ -215,5 +218,6 @@ public class Path_flowerman : MonoBehaviour
                 Destroy(bouton);
             }
         }
+
     }
 }
