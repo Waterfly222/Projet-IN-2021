@@ -21,10 +21,15 @@ public class tondeur : MonoBehaviour
 
     void Update()
     {
+        if (!a && GetComponent<NavMeshAgent>().enabled && GetComponent<NavMeshAgent>().remainingDistance < 1 && GetComponent<NavMeshAgent>().destination == posFinTondre.transform.position)
+        {
+            GetComponent<Animator>().SetTrigger("Idle");
+        }
         if (a && GetComponent<NavMeshAgent>().enabled && GetComponent<NavMeshAgent>().remainingDistance < 0.1)
         {
             distance = GetComponent<NavMeshAgent>().remainingDistance;
             GetComponent<NavMeshAgent>().enabled = false;
+            GetComponent<NavMeshAgent>().speed = 1;
             transform.parent = posTondre.transform.parent;
             transform.localPosition = pos;
             transform.localRotation = rota;
@@ -39,5 +44,6 @@ public class tondeur : MonoBehaviour
             GetComponent<NavMeshAgent>().destination = posFinTondre.transform.position;
             b = false;
         }
+        
     }
 }

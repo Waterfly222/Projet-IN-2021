@@ -4,8 +4,8 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - test
   - herbe
+  - truck
   layers:
   - Default
   - TransparentFX
