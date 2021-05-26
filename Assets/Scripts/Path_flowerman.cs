@@ -18,6 +18,7 @@ public class Path_flowerman : MonoBehaviour
     public GameObject watercan;
     public ParticleSystem effet_eau;
     public GameObject main;
+    public GameObject bouton;
     Animator animator;
     private NavMeshAgent agent;
     int action;
@@ -125,7 +126,7 @@ public class Path_flowerman : MonoBehaviour
         // marche jusqu'au robinet
         else if (action == 8)
         {
-            if (agent.remainingDistance < 0.0001f && !GetComponent<NavMeshAgent>().pathPending)
+            if (agent.remainingDistance == 0 && !GetComponent<NavMeshAgent>().pathPending)
             {
                 transform.rotation = fillwatercan_target.transform.rotation;
                 animator.SetBool("move", false);
@@ -211,6 +212,7 @@ public class Path_flowerman : MonoBehaviour
             if (agent.remainingDistance < 0.01f && !GetComponent<NavMeshAgent>().pathPending)
             {
                 Destroy(gameObject);
+                Destroy(bouton);
             }
         }
     }

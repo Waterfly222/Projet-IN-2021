@@ -5,17 +5,14 @@ using UnityEngine;
 public class FollowingCamera : MonoBehaviour
 {
     public GameObject obj2follow;
-
-    private Vector3 posRelat;
-    // Start is called before the first frame update
-    void Start()
-    {
-        posRelat = this.transform.position - obj2follow.transform.position;
-    }
+    public Vector3 posRelat = new Vector3(0,0,0);
 
     // Update is called once per frame
     void Update()
     {
-        this.transform.position = obj2follow.transform.position + posRelat;
+        if (obj2follow != null)
+        {
+            this.transform.position = obj2follow.transform.position + posRelat;
+        }
     }
 }

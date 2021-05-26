@@ -9,22 +9,28 @@ public class DetectEndAnimCamera2 : MonoBehaviour
     public GameObject boutonTondeur;
     public GameObject boutonSerre;
     public GameObject boutonVueEnsemble;
-    // Start is called before the first frame update
-    void Start()
-    {
+    public GameObject flowerman;
+    public GameObject bucheron;
+    public GameObject tondeur;
+    public GameObject serreman;
 
-    }
+    private bool a = true;
 
     // Update is called once per frame
     void Update()
     {
-        if (GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("end_anim_2"))
+        if (a && GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("end_anim_2") )
         {
             boutonFleuriste.SetActive(true);
             boutonBucheron.SetActive(true);
             boutonTondeur.SetActive(true);
             boutonSerre.SetActive(true);
             boutonVueEnsemble.SetActive(true);
+            flowerman.SetActive(true);
+            tondeur.SetActive(true);
+            bucheron.SetActive(true);
+            serreman.SetActive(true);
+            a = false;
         }
     }
 }

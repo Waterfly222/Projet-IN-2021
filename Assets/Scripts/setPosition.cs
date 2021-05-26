@@ -25,6 +25,12 @@ public class setPosition : MonoBehaviour
     
     void Update()
     {
+        if (c&&arbre.GetComponent<arbre>().indexe >= 90)
+        {
+            print("arret buche");
+            GetComponent<Animator>().SetTrigger("Idle");
+            c = false;
+        }
         if(GetComponent<NavMeshAgent>().enabled) distance = GetComponent<NavMeshAgent>().remainingDistance;
 
         if (a && GetComponent<NavMeshAgent>().enabled && !GetComponent<NavMeshAgent>().pathPending && distance < 0.1)
@@ -47,11 +53,6 @@ public class setPosition : MonoBehaviour
             GetComponent<Animator>().SetTrigger("Marcher");
             a = true;
             b = false;
-        }
-        if (c&&arbre.GetComponent<arbre>().indexe == 100)
-        {
-            GetComponent<Animator>().SetTrigger("Idle");
-            c = false;
         }
     }
 }

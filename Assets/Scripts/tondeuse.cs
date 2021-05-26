@@ -18,16 +18,19 @@ public class tondeuse : MonoBehaviour
 
     void Update()
     {
-        if (a&&tondeur.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("walkingAvecTondeuse"))
+        if (tondeur.activeSelf)
         {
-            GetComponent<ParticleSystem>().Play();
-            GetComponent<AudioSource>().Play();
-            a = false;
-        }
-        if (!tondeur.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("walkingAvecTondeuse"))
-        {
-            GetComponent<ParticleSystem>().Stop();
-            GetComponent<AudioSource>().Stop();
+            if (a && tondeur.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("walkingAvecTondeuse"))
+            {
+                GetComponent<ParticleSystem>().Play();
+                GetComponent<AudioSource>().Play();
+                a = false;
+            }
+            if (!tondeur.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("walkingAvecTondeuse"))
+            {
+                GetComponent<ParticleSystem>().Stop();
+                GetComponent<AudioSource>().Stop();
+            }
         }
     }
 }

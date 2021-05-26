@@ -18,7 +18,9 @@ public class arbre : MonoBehaviour
     public GameObject hache;
 
     public int indexe=0;
+    public int indexePrec = 0;
     private bool isShooting = false;
+    private int nbCoups = 9;
 
     /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
@@ -36,62 +38,63 @@ public class arbre : MonoBehaviour
 
     void Update()
     {
-        if (!isShooting && (indexe == 10 || indexe == 20 || indexe == 30 || indexe == 40 || indexe == 50 || indexe == 60 || indexe == 70 || indexe == 80 || indexe == 90 || indexe == 100))
+        if (!isShooting && indexe != indexePrec)
         {
             GetComponent<ParticleSystem>().Play();
             isShooting = true;
+            indexePrec++;
         }
-        if(!(indexe == 10 || indexe == 20 || indexe == 30 || indexe == 40 || indexe == 50 || indexe == 60 || indexe == 70 || indexe == 80 || indexe == 90 || indexe == 100))
+        if(indexe == indexePrec)
         {
             isShooting = false;
         }
 
-        if (indexe==10)
+        if (indexe== nbCoups)
         {
             arbre0.SetActive(false);
             arbre1.SetActive(true);
         }
-        if (indexe == 20)
+        if (indexe == nbCoups*2)
         {
             arbre1.SetActive(false);
             arbre2.SetActive(true);
         }
-        if (indexe == 30)
+        if (indexe == nbCoups*3)
         {
             arbre2.SetActive(false);
             arbre3.SetActive(true);
         }
-        if (indexe == 40)
+        if (indexe == nbCoups*4)
         {
             arbre3.SetActive(false);
             arbre4.SetActive(true);
         }
-        if (indexe == 50)
+        if (indexe == nbCoups*5)
         {
             arbre4.SetActive(false);
             arbre5.SetActive(true);
         }
-        if (indexe == 60)
+        if (indexe == nbCoups*6)
         {
             arbre5.SetActive(false);
             arbre6.SetActive(true);
         }
-        if (indexe == 70)
+        if (indexe == nbCoups*7)
         {
             arbre6.SetActive(false);
             arbre7.SetActive(true);
         }
-        if (indexe == 80)
+        if (indexe == nbCoups*8)
         {
             arbre7.SetActive(false);
             arbre8.SetActive(true);
         }
-        if (indexe == 90)
+        if (indexe == nbCoups*9)
         {
             arbre8.SetActive(false);
             arbre9.SetActive(true);
         }
-        if (indexe == 100)
+        if (indexe == nbCoups*10)
         {
             Destroy(hache.GetComponent<Rigidbody>());
             Destroy(hache.GetComponent<BoxCollider>());

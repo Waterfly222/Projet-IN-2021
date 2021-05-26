@@ -9,6 +9,7 @@ public class SerreMan : MonoBehaviour
     public GameObject plant;
     public Transform currentCible;
     public GameObject porte;
+    public GameObject bouton;
     private int indiceCible = 1;
     private bool a = true;
     private bool planter = false;
@@ -24,16 +25,17 @@ public class SerreMan : MonoBehaviour
     {
         planter = GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("planter");
 
-        if (a && GetComponent<NavMeshAgent>().remainingDistance < 0.05 && !GetComponent<NavMeshAgent>().pathPending)
+        if (a && GetComponent<NavMeshAgent>().remainingDistance == 0 && !GetComponent<NavMeshAgent>().pathPending)
         {
             if (indiceCible == 13)
             {
                 Destroy(gameObject);
+                Destroy(bouton);
             }
             porte.GetComponent<ConstantForce>().relativeForce = new Vector3(-1, 0, 0);
             indiceCible++;
             GetComponent<NavMeshAgent>().enabled = false;
-            transform.SetPositionAndRotation(new Vector3(currentCible.position.x, transform.position.y, currentCible.position.z), currentCible.rotation);
+            transform.rotation = currentCible.rotation;
             GetComponent<Animator>().SetTrigger("Planter");
             a = false;
             string tmp = "Cible" + indiceCible;

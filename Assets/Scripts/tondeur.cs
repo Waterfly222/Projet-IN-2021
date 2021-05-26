@@ -21,11 +21,7 @@ public class tondeur : MonoBehaviour
 
     void Update()
     {
-        if (!a && GetComponent<NavMeshAgent>().enabled && GetComponent<NavMeshAgent>().remainingDistance < 1 && GetComponent<NavMeshAgent>().destination == posFinTondre.transform.position)
-        {
-            GetComponent<Animator>().SetTrigger("Idle");
-        }
-        if (a && GetComponent<NavMeshAgent>().enabled && GetComponent<NavMeshAgent>().remainingDistance < 0.1)
+        if (a && GetComponent<NavMeshAgent>().enabled && GetComponent<NavMeshAgent>().remainingDistance < 0.1 && !GetComponent<NavMeshAgent>().pathPending)
         {
             distance = GetComponent<NavMeshAgent>().remainingDistance;
             GetComponent<NavMeshAgent>().enabled = false;

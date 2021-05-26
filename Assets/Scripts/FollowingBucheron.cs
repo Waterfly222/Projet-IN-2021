@@ -13,11 +13,11 @@ public class FollowingBucheron : MonoBehaviour
     // Update is called once per frame
     public void appuyer()
     {
-        transform.parent = null;
         GetComponent<Animator>().enabled = false;
         Vector3 decalage = new Vector3(x, y, z);
+        GetComponent<FollowingCamera>().obj2follow = obj2follow;
+        GetComponent<FollowingCamera>().posRelat = decalage;
         this.transform.position = obj2follow.transform.position + decalage;
-        transform.parent = obj2follow.transform;
         transform.LookAt(obj2follow.transform);
     }
 }
