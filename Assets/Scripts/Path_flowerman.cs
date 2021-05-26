@@ -12,6 +12,7 @@ public class Path_flowerman : MonoBehaviour
     public GameObject plant_target2;
     public GameObject watercan_target;
     public GameObject fillwatercan_target;
+    public GameObject truck_target;
 
     // others
     public GameObject watercan;
@@ -45,7 +46,7 @@ public class Path_flowerman : MonoBehaviour
         // marche jusqu'au premier pot de fleur
         else if (action == 1)
         {
-            if (agent.remainingDistance < 0.01f)
+            if (agent.remainingDistance < 0.01f && !GetComponent<NavMeshAgent>().pathPending)
             {
                 transform.rotation = plant_target1.transform.rotation;
                 animator.SetBool("move", false);
@@ -68,7 +69,7 @@ public class Path_flowerman : MonoBehaviour
         // marche jusqu'au deuxième pot de fleur
         else if (action == 3)
         {
-            if (agent.remainingDistance < 0.01f)
+            if (agent.remainingDistance < 0.01f && !GetComponent<NavMeshAgent>().pathPending)
             {
                 transform.rotation = plant_target2.transform.rotation;
                 animator.SetBool("move", false);
@@ -91,7 +92,7 @@ public class Path_flowerman : MonoBehaviour
         // marche jusqu'à l'arrosoir
         else if (action == 5)
         {
-            if (agent.remainingDistance < 0.01f)
+            if (agent.remainingDistance < 0.01f && !GetComponent<NavMeshAgent>().pathPending)
             {
                 transform.rotation = watercan_target.transform.rotation;
                 animator.SetBool("move", false);
@@ -124,7 +125,7 @@ public class Path_flowerman : MonoBehaviour
         // marche jusqu'au robinet
         else if (action == 8)
         {
-            if (agent.remainingDistance < 0.0001f)
+            if (agent.remainingDistance < 0.0001f && !GetComponent<NavMeshAgent>().pathPending)
             {
                 transform.rotation = fillwatercan_target.transform.rotation;
                 animator.SetBool("move", false);
@@ -149,10 +150,10 @@ public class Path_flowerman : MonoBehaviour
                 action = 11;
             }
         }
-        
+
         else if (action == 11)
         {
-            if (animator.GetCurrentAnimatorStateInfo(0).IsName("endfillwatercan")) 
+            if (animator.GetCurrentAnimatorStateInfo(0).IsName("endfillwatercan"))
             {
                 agent.destination = plant_target1.transform.position;
                 animator.SetBool("move", true);
@@ -163,7 +164,7 @@ public class Path_flowerman : MonoBehaviour
         // marche jusqu'au plant 1
         else if (action == 12)
         {
-            if (agent.remainingDistance < 0.01f)
+            if (agent.remainingDistance < 0.01f && !GetComponent<NavMeshAgent>().pathPending)
             {
                 transform.rotation = plant_target1.transform.rotation;
                 animator.SetBool("move", false);
@@ -186,13 +187,30 @@ public class Path_flowerman : MonoBehaviour
         // marche jusqu'au plant 2
         else if (action == 14)
         {
-            if (agent.remainingDistance < 0.01f)
+            if (agent.remainingDistance < 0.01f && !GetComponent<NavMeshAgent>().pathPending)
             {
                 transform.rotation = plant_target2.transform.rotation;
                 animator.SetBool("move", false);
                 animator.SetBool("noAction", true);
                 animator.SetTrigger("watering_plants");
                 action = 15;
+            }
+        }
+        else if (action == 15)
+        {
+            if (animator.GetCurrentAnimatorStateInfo(0).IsName("endwaterplants"))
+            {
+                agent.destination = truck_target.transform.position;
+                animator.SetBool("move", true);
+                animator.SetBool("noAction", true);
+                action = 16;
+            }
+        }
+        else if (action == 16)
+        {
+            if (agent.remainingDistance < 0.01f && !GetComponent<NavMeshAgent>().pathPending)
+            {
+                Destroy(gameObject);
             }
         }
     }

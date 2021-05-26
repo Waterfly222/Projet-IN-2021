@@ -24,8 +24,12 @@ public class SerreMan : MonoBehaviour
     {
         planter = GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("planter");
 
-        if (a && GetComponent<NavMeshAgent>().remainingDistance < 0.05)
+        if (a && GetComponent<NavMeshAgent>().remainingDistance < 0.05 && !GetComponent<NavMeshAgent>().pathPending)
         {
+            if (indiceCible == 13)
+            {
+                Destroy(gameObject);
+            }
             porte.GetComponent<ConstantForce>().relativeForce = new Vector3(-1, 0, 0);
             indiceCible++;
             GetComponent<NavMeshAgent>().enabled = false;
