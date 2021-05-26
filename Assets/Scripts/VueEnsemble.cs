@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FollowingSerreMan : MonoBehaviour
+public class VueEnsemble : MonoBehaviour
 {
     public GameObject obj2follow;
     public float x;

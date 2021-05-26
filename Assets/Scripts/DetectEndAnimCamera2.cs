@@ -8,6 +8,7 @@ public class DetectEndAnimCamera2 : MonoBehaviour
     public GameObject boutonBucheron;
     public GameObject boutonTondeur;
     public GameObject boutonSerre;
+    public GameObject boutonVueEnsemble;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +24,7 @@ public class DetectEndAnimCamera2 : MonoBehaviour
             boutonBucheron.SetActive(true);
             boutonTondeur.SetActive(true);
             boutonSerre.SetActive(true);
+            boutonVueEnsemble.SetActive(true);
         }
     }
 }

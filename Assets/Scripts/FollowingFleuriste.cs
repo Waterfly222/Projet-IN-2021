@@ -5,17 +5,19 @@ using UnityEngine;
 public class FollowingFleuriste : MonoBehaviour
 {
     public GameObject obj2follow;
-    private Vector3 posRelat;
-    // Start is called before the first frame update
-    void Start()
-    {
-        posRelat = this.transform.position - obj2follow.transform.position;
-        transform.position.Set(obj2follow.transform.position.x, obj2follow.transform.position.y, obj2follow.transform.position.z);
-    }
+    public float x;
+    public float y;
+    public float z;
+
 
     // Update is called once per frame
-    void Update()
+    public void appuyer()
     {
-        this.transform.position = obj2follow.transform.position + posRelat;
+        transform.parent = null;
+        GetComponent<Animator>().enabled = false;
+        Vector3 decalage = new Vector3( x, y, z );
+        this.transform.position = obj2follow.transform.position + decalage;
+        transform.parent = obj2follow.transform;
+        transform.LookAt(obj2follow.transform);
     }
 }
