@@ -101,7 +101,7 @@ public class arbre : MonoBehaviour
             arbre8.SetActive(false);
             arbre9.SetActive(true);
         }
-        if(indexe == nbCoups * 2 - 3)
+        if(indexe == nbCoups * 10 - 3)
         {
             camera.GetComponent<Animator>().enabled = false;
             Vector3 decalage = new Vector3(-16f, 6f, -4f);
