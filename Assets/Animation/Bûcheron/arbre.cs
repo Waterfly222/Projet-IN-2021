@@ -16,6 +16,13 @@ public class arbre : MonoBehaviour
     public GameObject arbre9;
     public GameObject arbre10;
     public GameObject hache;
+    public GameObject scenefinale;
+    public GameObject camera;
+    public GameObject boutonfleuriste;
+    public GameObject boutonbucheron;
+    public GameObject boutontondeur;
+    public GameObject boutonserreman;
+    public GameObject boutonvuedensemble;
 
     public int indexe=0;
     public int indexePrec = 0;
@@ -93,6 +100,35 @@ public class arbre : MonoBehaviour
         {
             arbre8.SetActive(false);
             arbre9.SetActive(true);
+        }
+        if(indexe == nbCoups * 2 - 3)
+        {
+            camera.GetComponent<Animator>().enabled = false;
+            Vector3 decalage = new Vector3(-16f, 6f, -4f);
+            camera.GetComponent<FollowingCamera>().obj2follow = scenefinale;
+            camera.GetComponent<FollowingCamera>().posRelat = decalage;
+            camera.transform.position = scenefinale.transform.position + decalage;
+            camera.transform.LookAt(scenefinale.transform);
+            if (boutonfleuriste != null)
+            {
+                Destroy(boutonfleuriste);
+            }
+            if(boutonbucheron != null)
+            {
+                Destroy(boutonbucheron);
+            }
+            if (boutontondeur != null)
+            {
+                Destroy(boutontondeur);
+            }
+            if (boutonserreman != null)
+            {
+                Destroy(boutonserreman);
+            }
+            if (boutonvuedensemble != null)
+            {
+                Destroy(boutonvuedensemble);
+            }
         }
         if (indexe == nbCoups*10)
         {
